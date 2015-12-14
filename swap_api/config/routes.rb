@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  post '/register' => 'auth#register'
+  # patch '/confirm' => 'auth#confirm'
+  post '/login' => 'auth#login'
+  delete '/logout/:id' => 'auth#logout'
+  resources :users, except: [:new, :edit]
+
+  resources :profiles, except: [:new, :edit]
+  resources :resources, except: [:new, :edit]
+  resources :trades, except: [:new, :edit]
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +64,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
