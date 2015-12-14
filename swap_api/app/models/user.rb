@@ -1,5 +1,5 @@
 
 class User < ActiveRecord::Base
   include Authentication
-  has_many :profiles
+  has_one :profile
 end

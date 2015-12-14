@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   include Authentication
+  belongs_to :users
   has_many :giver_trades, class_name:  'Trade',
                           foreign_key: 'giver_id',
                           dependent:   :destroy
