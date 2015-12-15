@@ -1,7 +1,7 @@
 
 curl --include --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
-    "email": "my",
+    "email": "edie",
     "password": "password",
     "password_confirmation": "password"
   }
@@ -14,7 +14,7 @@ curl --include --request POST --header "Content-Type: application/json" -d '{
 
 curl --request POST --header "Content-Type: application/json" -d '{
  "credentials": {
-   "email": "my",
+   "email": "edie",
    "password": "password"
  }
 }' http://localhost:3000/login

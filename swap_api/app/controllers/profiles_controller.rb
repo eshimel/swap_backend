@@ -19,8 +19,9 @@ class ProfilesController < OpenReadController
 
   # POST /profiles
   def create
-    @profile = current_user.profiles.new(profile_params) #makes this, this user's profile.
-
+    @profile = current_user.build_profile(profile_params)
+    #current_user.profiles.new(profile_params) #makes this, this user's profile.
+    @profile.save
     if @profile.save
       render json: @profile, status: :created, location: @profile
     else
@@ -45,7 +46,7 @@ class ProfilesController < OpenReadController
   end
 
   def set_profile
-    @profile = current_user.profiles.find(params[:id])
+    @profile = current_user.profile
   end
 
   def profile_params
