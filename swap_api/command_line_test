@@ -46,7 +46,7 @@ curl --request POST --header "Authorization: Token token=7db9d171f342f5e663fba28
 
   http://localhost:3000/profiles
 
-  INSERT INTO profiles (username, studio, website, user_id, created_at, updated_at) values ('Lina', 'Somewhere', '.com', 1, now(), now());
+  INSERT INTO profiles (username, studio, website, user_id, created_at, updated_at) values ('Lina', 'Somewhere', '.com', 2, now(), now());
 
 
 curl --header "Authorization: Token token=dd294dce94d18b37462d492e817d4313" http://localhost:3000/profiles
@@ -56,3 +56,24 @@ curl --header "Authorization: Token token=dd294dce94d18b37462d492e817d4313" http
 
 
 curl --header "Authorization: Token token=8118c9ac3be53827327b69645ad296db" http://localhost:3000/profiles
+
+
+curl --include --request POST --header "Content-Type: application/json" -d '{
+  "credentials": {
+    "email": "alex",
+    "password": "password",
+    "password_confirmation": "password"
+  }
+}' http://localhost:3000/register
+
+curl --request POST --header "Content-Type: application/json" -d '{
+ "credentials": {
+   "email": "alex",
+   "password": "password"
+ }
+}' http://localhost:3000/login
+
+
+
+39c76a105277883463235f0879c0f3fc
+

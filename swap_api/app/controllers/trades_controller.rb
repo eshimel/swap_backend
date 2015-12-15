@@ -1,10 +1,9 @@
 #
 class TradesController < OpenReadController
   before_action :set_trade, only: [:update, :destroy]
-
   # GET /trades
    def index
-    if(current_user)
+    if current_user
       @trades = current_user.trades
     else
       @trades = Trade.all

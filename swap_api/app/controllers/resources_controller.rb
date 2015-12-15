@@ -4,7 +4,7 @@ class ResourcesController < OpenReadController
   # GET /resources
 
   def index
-    if(current_user)
+    if current_user
       @resources = current_user.resources
     else
       @resources = Resource.all
