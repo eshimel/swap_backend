@@ -4,7 +4,9 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :username
       t.string :studio
       t.string :website
-      t.references :user
+      t.integer :user_id
+      t.foreign_key :users, :column => :user_id, :dependent => :delete
+
       t.timestamps null: false
     end
   end

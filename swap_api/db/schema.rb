@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20151214165130) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
+  add_foreign_key "profiles", "users"
   add_foreign_key "resources", "profiles"
   add_foreign_key "trades", "profiles", column: "giver_id", on_delete: :cascade
   add_foreign_key "trades", "profiles", column: "receiver_id", on_delete: :cascade

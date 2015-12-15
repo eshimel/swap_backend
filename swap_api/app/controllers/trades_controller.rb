@@ -52,7 +52,7 @@ class TradesController < OpenReadController
   end
 
   def trade_params
-    params.require(:trade).permit(:giver_id, :receiver_id, :resource)
+    params.require(:trade).permit(:giver_id, :receiver_id, :resource_id)
   end
 
   private :set_trade, :trade_params

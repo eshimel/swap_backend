@@ -1,6 +1,7 @@
+#
 class Profile < ActiveRecord::Base
-  include Authentication
-  belongs_to :users
+  # include Authentication
+  belongs_to :user
   has_many :giver_trades, class_name:  'Trade',
                           foreign_key: 'giver_id',
                           dependent:   :destroy
@@ -15,4 +16,3 @@ class Profile < ActiveRecord::Base
 
   has_many :borrowers, through: :borrower_loans, source: :loaner
 end
-

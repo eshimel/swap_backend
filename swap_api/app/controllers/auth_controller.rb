@@ -43,4 +43,3 @@ class AuthController < ApplicationController
 
   private :credentials
 end
-

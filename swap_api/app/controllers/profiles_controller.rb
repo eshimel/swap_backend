@@ -3,9 +3,9 @@ class ProfilesController < OpenReadController
   before_action :set_profile, only: [:update, :destroy]
 
   # GET /profiles
-   def index
-    if(current_user)
-      @profiles = current_user.profiles
+  def index
+    if current_user
+      @profiles = current_user.profile
     else
       @profiles = Profile.all
     end
@@ -14,10 +14,7 @@ class ProfilesController < OpenReadController
 
   # GET /profiles/1
   def show
-    def show
-
     render json: current_user.profile
-  end
   end
 
   # POST /profiles
@@ -52,7 +49,7 @@ class ProfilesController < OpenReadController
   end
 
   def profile_params
-    params.require(:profile).permit(:username, :studio, :website, :user)
+    params.require(:profile).permit(:username, :studio, :website, :user_id)
   end
 
   private :set_profile, :profile_params
