@@ -20,7 +20,7 @@ class ProfilesController < OpenReadController
   # POST /profiles
   def create
     @profile = current_user.build_profile(profile_params)
-    #current_user.profiles.new(profile_params) #makes this, this user's profile.
+    # current_user.profiles.new(profile_params) #makes this, this user's profile
     @profile.save
     if @profile.save
       render json: @profile, status: :created, location: @profile
@@ -29,6 +29,10 @@ class ProfilesController < OpenReadController
     end
   end
 
+  def show_current
+    @profile = Profile.findby current_user: :user_id
+    render json: @profile
+  end
   # PATCH /profiles/1
   def update
     if @profile.update(profile_params)

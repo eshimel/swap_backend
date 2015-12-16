@@ -18,7 +18,15 @@ class AuthController < ApplicationController
     @user = User.create(credentials)
 
     if @user.valid?
-      render json: @user, status: :created, location: @user
+      profile_params = { :user_id => @user.id}
+      profile = @user.build_profile(profile_params)
+      profile.save
+
+      if profile.save
+        render json: @user, status: :created, location: @user
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     else
       render json: @user.errors, status: :unprocessable_entity
     end
