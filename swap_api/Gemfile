@@ -21,6 +21,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Help with JSON serialization
 gem 'active_model_serializers'
 
+# paperclip for uploading images
+gem 'paperclip', '~> 4.3'
+
+# asw gemfile for amazon storage
+gem 'aws-sdk-v1'
+
 group :development do
   # Use pry over irb for rails console
   gem 'pry-rails'
