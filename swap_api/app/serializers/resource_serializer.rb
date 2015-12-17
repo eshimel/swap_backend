@@ -1,4 +1,4 @@
 #
 class ResourceSerializer < ActiveModel::Serializer
-  attributes :id, :type, :description, :profile_id
+  attributes :id, :category, :description, :profile_id
 end

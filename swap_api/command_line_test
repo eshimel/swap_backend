@@ -77,3 +77,4 @@ curl --request POST --header "Content-Type: application/json" -d '{
 
 39c76a105277883463235f0879c0f3fc
 
+ INSERT INTO resources (category, description, profile_id, created_at, updated_at, user_id) values ('Photography', 'I take portfolio pictures and headshots.', 21, now(), now(), 21);

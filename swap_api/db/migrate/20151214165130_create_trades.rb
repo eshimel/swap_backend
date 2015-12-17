@@ -1,4 +1,4 @@
-class CreateTrades < ActiveRecord::Migration
+ class CreateTrades < ActiveRecord::Migration
   def change
     create_table :trades do |t|
       t.references :giver, null: false

@@ -4,11 +4,12 @@ class ResourcesController < OpenReadController
   # GET /resources
 
   def index
-    if current_user
-      @resources = current_user.resources
-    else
-      @resources = Resource.all
-    end
+    # if current_user
+    #   @resources = current_user.resources
+    # else
+    #   @resources = Resource.all
+    # end
+    @resources = Resource.all
     render json: @resources
   end
 
