@@ -18,7 +18,8 @@ class Profile < ActiveRecord::Base
 
    has_attached_file :avatar,  #Or whatever you want to call the image you're uploading.
               :styles => { :medium => "300x300>", :thumb => "100x100>" },
-              :default_url => "/images/:style/missing.png"
+              :default_url => "/images/:style/missing.png",
+              :path => "/images/:id/:style/:filename"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   # By default, every file uploaded will be named 'data'.

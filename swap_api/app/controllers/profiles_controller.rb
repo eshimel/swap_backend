@@ -34,6 +34,7 @@ class ProfilesController < OpenReadController
     render json: @profile
   end
   # PATCH /profiles/1
+
   def update
     if @profile.update(profile_params)
       head :no_content
