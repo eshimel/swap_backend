@@ -22,7 +22,8 @@ class ResourcesController < OpenReadController
 
   # POST /resources
   def create
-    @resource = current_user.resources.new(resource_params) #makes this, this user's resource.
+    @resource = current_user.trades.new(resource_params)
+    # makes this, this user's resource.
 
     if @resource.save
       render json: @resource, status: :created, location: @resource
@@ -52,8 +53,9 @@ class ResourcesController < OpenReadController
   end
 
   def resource_params
-    params.require(:resource).permit(:type, :description, :profile_id)
+    params.require(:resource).permit(:type, :description)
   end
 
   private :set_resource, :resource_params
 end
+

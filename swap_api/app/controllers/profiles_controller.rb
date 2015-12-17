@@ -49,12 +49,17 @@ class ProfilesController < OpenReadController
     head :no_content
   end
 
+  def delete
+    @user.avatar = nil
+    @user.save
+  end
+
   def set_profile
     @profile = current_user.profile
   end
 
   def profile_params
-    params.require(:profile).permit(:username, :studio, :website, :user_id)
+    params.require(:profile).permit(:username, :studio, :website, :user_id, :avatar)
   end
 
   private :set_profile, :profile_params
