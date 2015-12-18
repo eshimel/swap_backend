@@ -23,7 +23,7 @@ class ResourcesController < OpenReadController
 
   # POST /resources
   def create
-    @resource = current_user.trades.new(resource_params)
+    @resource = current_user.resource.new(resource_params)
     # makes this, this user's resource.
 
     if @resource.save

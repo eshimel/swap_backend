@@ -2,7 +2,7 @@
 class Profile < ActiveRecord::Base
   # include Authentication
   belongs_to :user
-
+  has_many :resources
   has_many :given_resources, through: :giver_resources, source: :resource
   has_many :received_resources, through: :receiver_resources, source: :resource
 
